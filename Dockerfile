@@ -9,6 +9,7 @@ FROM scratch
 
 # Copy the compiled binary into the container.  Crucially, it's statically linked.
 COPY --from=builder /app/simplerouter /simplerouter
+COPY .env /
 
 # Expose the port (this is metadata, but good practice).
 EXPOSE 8080

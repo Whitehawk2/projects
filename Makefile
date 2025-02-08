@@ -1,4 +1,4 @@
-.PHONY: install build clean
+.PHONY: install build docker clean
 
 # Build target (statically linked)
 build:
@@ -10,6 +10,10 @@ install: build
 # Clean target (removes the compiled binary)
 clean:
 	rm -f simplerouter
+
+docker:
+	install 
+	docker build -t simplerouter:demo . -f Dockerfile-singleStage
 
 # Default target (runs build)
 all: build
